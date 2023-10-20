@@ -1,0 +1,38 @@
+{% include 'userheader.html' %}
+<body>
+    <style>
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 20vh;
+        }
+    </style>
+    
+    <div class="center">
+        {%- if files %}
+        <h4>Uploaded Resumes</h4>
+       
+        <ul>
+        {%- for code, file in files.items() %}
+            <li><a href="/resume_parser/{{ code }}">{{ file }}</a></li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+
+
+    </div>
+    <form method="POST" action="/resume/process">
+        <div class="center">
+            <h4>Enter Your Job Description</h4>
+        </div>
+        <div class="center"> <!-- New div to center the text area -->
+            <textarea type="text" rows="5" cols="5" class="form-control"  name="rawtext" required="true"></textarea>
+        </div>
+        <div class="center"> <!-- New div to center the buttons -->
+            <button type="reset" class="btn btn-primary"><i class="fa fa-eraser"></i> Clear</button>
+            <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
+        </div>
+    </form>    
+</body>
+{% include 'footer.html' %}

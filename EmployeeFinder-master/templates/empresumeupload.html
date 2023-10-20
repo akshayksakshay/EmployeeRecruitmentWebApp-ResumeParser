@@ -1,0 +1,22 @@
+{% include 'employeeheader.html' %}
+
+<body>
+    <style>
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+        }
+    </style>
+    
+    <div class="center">
+        <form method="post" enctype="multipart/form-data" action="/resume/upload_file">
+            <h4>Upload Your Resume</h4><br>
+            <input type="file" name="file" multiple>
+            <input type="submit" value="Upload">
+        </form>
+    </div>
+    
+</body>
+{% include 'footer.html' %}
